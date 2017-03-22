@@ -34,5 +34,4 @@ For help
   $ java -jar ATAC_GUI.jar -h 
 
 
-
 See manual for more information
