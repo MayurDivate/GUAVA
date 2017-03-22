@@ -1,19 +1,19 @@
-<h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data <h1/>
+<h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data </h1>
 
 
-System requirements:
+System requirements: <br/>
 
-  Java 1.8 or latest
+  Java 1.8 or latest<br/>
   
-  Bowtie version 1.1.2
+  Bowtie version 1.1.2<br/>
   
-  Python version 2.7
+  Python version 2.7<br/>
   
-  MACS2 version 2.1.1.20160309
+  MACS2 version 2.1.1.20160309<br/>
   
-  SAMtools Version: 1.3.1
+  SAMtools Version: 1.3.1<br/>
   
-  R Version: >= 3.3.0
+  R Version: >= 3.3.0<br/>
   
   
 
