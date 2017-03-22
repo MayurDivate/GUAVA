@@ -14,17 +14,25 @@ System requirements:
   SAMtools Version: 1.3.1
   
   R Version: >= 3.3.0
+  
+  
 
 To start GUAVA use following command
 
   $	java –jar GUAVA.jar –h
 
+
+
 For command line interface
 
   $ java -jar ATAC_GUI.jar [options]*
   
+  
+  
 For help
 
   $ java -jar ATAC_GUI.jar -h 
+
+
 
 See manual for more information
