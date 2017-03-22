@@ -1,4 +1,5 @@
 How to install dependencies?
+
 ATACseq_analyzer has dependencies which need to be installed on your system. 
 
 Java 1.8 or latest
