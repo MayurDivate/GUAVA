@@ -1,4 +1,4 @@
-GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data
+<h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data <h1/>
 
 
 System requirements:
