@@ -1,3 +1,6 @@
+GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data
+
+
 System requirements:
   Java 1.8 or latest
   Bowtie version 1.1.2
