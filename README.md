@@ -12,9 +12,9 @@
   $	java –jar GUAVA.jar –h<br/><br/>
 
 <h3>For command line interface</h3>
-  $ java -jar ATAC_GUI.jar [options]*<br/><br/>
+  $ java -jar GUAVA.jar [options]*<br/><br/>
   
 <h3>For help</h3> 
-  $ java -jar ATAC_GUI.jar -h<br/><br/><br/>
+  $ java -jar GUAVA.jar -h<br/><br/><br/>
 
 See manual for more information</h3> <br/>
