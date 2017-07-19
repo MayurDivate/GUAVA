@@ -1,47 +1,48 @@
 
 source("https://bioconductor.org/biocLite.R")
+biocLite()
 
-if("ChIPseeker" %in% rownames(installed.packages()) == FALSE) {
+if(!require(ChIPseeker) {
 biocLite("ChIPseeker")
-} else {
-print("***** ChIPseeker R package found *****")
-}
-
-if("ReactomePA" %in% rownames(installed.packages()) == FALSE) {
+} 
+if(!require(ReactomePA)) {
 biocLite("ReactomePA")
-} else {
-print("***** ReactomePA R package found *****")
 }
 
-if("TxDb.Hsapiens.UCSC.hg19.knownGene" %in% rownames(installed.packages()) == FALSE) {
+if(!require(TxDb.Hsapiens.UCSC.hg19.knownGene)) {
 biocLite("TxDb.Hsapiens.UCSC.hg19.knownGene")
-} else {
-print("***** TxDb.Hsapiens.UCSC.hg19.knownGene R package found *****")
-}
+} 
 
-if("TxDb.Mmusculus.UCSC.mm9.knownGene" %in% rownames(installed.packages()) == FALSE) {
+if(!require(TxDb.Mmusculus.UCSC.mm9.knownGene)) {
 biocLite("TxDb.Mmusculus.UCSC.mm9.knownGene")
-} else {
-print("***** TxDb.Mmusculus.UCSC.mm9.knownGene *****")
-}
+} 
 
-if("TxDb.Mmusculus.UCSC.mm10.knownGene" %in% rownames(installed.packages()) == FALSE) {
+if(!require(TxDb.Mmusculus.UCSC.mm10.knownGene)) {
 biocLite("TxDb.Mmusculus.UCSC.mm10.knownGene")
-} else {
-print("***** TxDb.Mmusculus.UCSC.mm10.knownGene *****")
-}
+} 
 
 if(!require("org.Hs.eg.db")) {
-source("https://bioconductor.org/biocLite.R")
-biocLite("org.Hs.eg.db")
-} else {
-print("***** org.Hs.eg.db found *****")
-}
+	biocLite("org.Hs.eg.db")
+} 
 
-if(!require("org.Mm.eg.db")) {
-source("https://bioconductor.org/biocLite.R")
-biocLite("org.Mm.eg.db")
-} else {
-print("***** org.Mm.eg.db found *****")
-}
+if(!require(ChIPpeakAnno)) {
+	biocLite("ChIPpeakAnno")
+} 
+
+if(!require(GO.db)) {
+	biocLite("GO.db")
+} 
+
+if(!require(KEGG.db)) {
+	biocLite("KEGG.db")
+} 
+
+if(!require(EnsDb.Hsapiens.v75)) {
+	biocLite("EnsDb.Hsapiens.v75")
+} 
+
+
+
+
+
 
