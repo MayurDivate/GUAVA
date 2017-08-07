@@ -2,7 +2,7 @@
 source("https://bioconductor.org/biocLite.R")
 biocLite()
 
-if(!require(ChIPseeker) {
+if(!require(ChIPseeker)) {
 biocLite("ChIPseeker")
 } 
 if(!require(ReactomePA)) {
