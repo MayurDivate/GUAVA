@@ -1,6 +1,5 @@
 <h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data </h1>
 
-
 <h3>System requirements</h3>
   Java 1.8 or latest<br/>
   Bowtie version 1.1.2<br/>
@@ -15,7 +14,11 @@
 =======
 
 <h3>GUI version</h3>
+<<<<<<< HEAD
 $	java –jar GUAVA.jar <br/><br/>
+>>>>>>> cutadapt
+=======
+  $ java –jar GUAVA.jar <br/><br/>
 >>>>>>> cutadapt
 
 <h3>For command line interface</h3>
