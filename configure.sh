@@ -1,10 +1,12 @@
 #!/bin/sh
 
-#######################################
-# installing BIOCONDA and prerequisites 
-####
-# author mdivate@umac.mo
-#################################
+#########################################
+# installing BIOCONDA and prerequisites #
+#########################################
+# author mdivate@umac.mo                #
+#########################################
+
+
 
 osname="$(uname -s)"
 
@@ -18,6 +20,10 @@ echo "Operating system :"${machine}
 
 minicondaScript=;
 minicondaLink=;
+
+############################################
+# Get correct link of miniconda base on OS #
+############################################
 
 get_minicodascript(){
 
@@ -33,11 +39,26 @@ fi
 
 get_minicodascript
 
+############################
+# Download miniconda setup #
+############################
+
+
 echo "---------- Downloading miniconda ----------------"
 #wget --no-check-certificate $minicondaLink 
 
+
+######################
+# INSTALL Miniconday #
+######################
+
 echo "---------- Installing  miniconda ----------------"
 #sh $minicondaScript
+
+##################################
+# Add BIOCONDA and other channel #
+##################################
+
 
 echo "---------- Adding BIOCONDA and other channels ----------------"
 #conda config --add channels r
@@ -45,9 +66,20 @@ echo "---------- Adding BIOCONDA and other channels ----------------"
 #conda config --add channels conda-forge
 #conda config --add channels bioconda
 
-###################
-# function to get tool path
-####################
+#######################################
+# Get correct version of a dependency #
+#######################################
+
+
+
+
+
+
+
+####################################
+# function to install dependency,  #
+# if it is not found on system     #
+####################################
 
 
 install(){
