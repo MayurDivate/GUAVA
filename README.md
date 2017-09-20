@@ -1,6 +1,5 @@
 <h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data </h1>
 
-#
 
 <h3>System requirements</h3>
   Java 1.8 or latest<br/>
