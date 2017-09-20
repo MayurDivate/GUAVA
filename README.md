@@ -9,17 +9,9 @@
   R Version: >= 3.3.0<br/><br/>
 
 <h3>To start GUAVA use following command</h3>
-<<<<<<< HEAD
-  $	java –jar GUAVA.jar –h<br/><br/>
-=======
 
 <h3>GUI version</h3>
-<<<<<<< HEAD
-$	java –jar GUAVA.jar <br/><br/>
->>>>>>> cutadapt
-=======
   $ java –jar GUAVA.jar <br/><br/>
->>>>>>> cutadapt
 
 <h3>For command line interface</h3>
   $ java -jar GUAVA.jar [options]*<br/><br/>
