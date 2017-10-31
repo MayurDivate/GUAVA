@@ -121,11 +121,13 @@ installv cutadapt 1.13
 installv fastqc 0.11.5
 installv macs2 2.1.1.20160309
 installv samtools 1.3.1
-install bioconductor-chipseeker 
-installv bioconductor-deseq2 1.14.1
 install picard
 install igv
 install ucsc-bedgraphtobigwig
+
+conda install -y r-base
+install bioconductor-chipseeker 
+installv bioconductor-deseq2 1.14.1
  
 echo "####################################################################"
 
