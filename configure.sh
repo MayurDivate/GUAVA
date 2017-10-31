@@ -44,7 +44,7 @@ get_minicodascript
 
 
 echo "---------- Downloading miniconda ----------------"
-#wget --no-check-certificate $minicondaLink 
+wget --no-check-certificate $minicondaLink 
 
 
 ######################
@@ -52,7 +52,7 @@ echo "---------- Downloading miniconda ----------------"
 ######################
 
 echo "---------- Installing  miniconda ----------------"
-#sh $minicondaScript
+sh $minicondaScript
 
 ##################################
 # Add BIOCONDA and other channel #
@@ -60,19 +60,13 @@ echo "---------- Installing  miniconda ----------------"
 
 
 echo "---------- Adding BIOCONDA and other channels ----------------"
-#conda config --add channels r
-#conda config --add channels defaults
-#conda config --add channels conda-forge
-#conda config --add channels bioconda
+conda config --add channels r
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
 
 #######################################
-# Get correct version of a dependency #
 #######################################
-
-
-
-
-
 
 
 ####################################
@@ -85,12 +79,12 @@ install(){
 
 echo ""
 echo ""
-echo "####################################################################"
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 	toolPath=`which $1`
 	
 	if [ -z $toolPath ]; then 
 		echo "INSTALLING : "$1" ... .. ."
-		conda install $1
+		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
 		echo $1" : Found >>> "$toolPath;
 	fi
@@ -98,19 +92,40 @@ echo "####################################################################"
 }
 
 
-echo "---------- Installing Bowtie ----------------"
-#conda install bowtie
+installv(){
 
-install bowtie 
-install bowtie2 
+echo ""
+echo ""
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+	toolPath=`which $1`
+	
+	if [ -z $toolPath ]; then 
+		echo "INSTALLING : "$1" ... .. ."
+		conda install -y $1=$2 -c bioconda
+	elif [ -n $toolPath ]; then
+		echo $1" : Found >>> "$toolPath;
+	fi
+
+}
+
+
+
+
+echo "---------- Installing Bowtie ----------------"
+
 install java
-install cutadapt
-install fastqc
-install macs2
-install samtools
-install bioconductor-chipseeker
-install bioconductor-deseq2
+installv bedtools 2.26.0  
+installv bowtie 1.1.2
+installv bowtie2 2.3.2 
+installv cutadapt 1.13
+installv fastqc 0.11.5
+installv macs2 2.1.1.20160309
+installv samtools 1.3.1
+install bioconductor-chipseeker 
+installv bioconductor-deseq2 1.14.1
 install picard
+install igv
+install ucsc-bedgraphtobigwig
  
 echo "####################################################################"
 
