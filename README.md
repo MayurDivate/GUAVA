@@ -40,6 +40,6 @@ GO.db <br/>
 KEGG.db <br/>
 EnsDb.Hsapiens.v75 <br/>
 
-<a href="https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf">
-See manual for more information<a><br/>
+<h2> <a href="https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf">
+See manual for more information<a><br/><h2/>
 
