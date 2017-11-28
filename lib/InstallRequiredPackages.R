@@ -10,7 +10,8 @@ bioconductorPackages <- c("ChIPseeker","ReactomePA",
                           "ChIPpeakAnno",
                           "GO.db",
                           "KEGG.db",
-                          "EnsDb.Hsapiens.v75")
+                          "EnsDb.Hsapiens.v75",
+			  "Rsubread")
 
 
 

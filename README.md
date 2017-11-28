@@ -10,6 +10,9 @@ $ cd GUAVA<br/>
 We have written configure.sh script for the easy installation of dependencies <br/>
 $ sh ./configure.sh <br/>
 
+If R packages are not installed successfully, use following command to install R packages.<br/>
+Rscript lib/InstallRequiredPackages.R 
+
 
 <h1>To start GUAVA use following command</h1>
 
