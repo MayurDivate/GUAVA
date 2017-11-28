@@ -6,24 +6,20 @@ $ unzip GUAVA-master.zip<br/>
 $ mv GUAVA-master GUAVA<br/>
 $ cd GUAVA<br/>
 
-<h3>Installing Dependencies</h3>
+<h2>Installing Dependencies</h2>
 We have written configure.sh script for the easy installation of dependencies <br/>
 $ sh ./configure.sh <br/>
 
 
 <h1>To start GUAVA use following command</h1>
 
-<h3>GUI version</h3>
-  $ java –jar GUAVA.jar <br/><br/>
+<h2>GUI version</h2>
+  $ java –jar GUAVA.jar <br/>
 
-<h3>For command line interface</h3>
-  $ java -jar GUAVA.jar [options]*<br/><br/>
+<h2>For command line interface</h2>
+  $ java -jar GUAVA.jar [options]*<br/>
   
-<h3>For help</h3> 
-  $ java -jar GUAVA.jar -h<br/><br/>
-
-
-<h2>System Requirements</h2>
+<h1>System Requirements</h1>
   Java 1.8 or latest<br/>
   Bowtie version 1.1.2<br/>
   Python version 2.7<br/>
@@ -31,7 +27,7 @@ $ sh ./configure.sh <br/>
   SAMtools Version: 1.3.1<br/>
   R Version: >= 3.3.0<br/><br/>
 
-<h3>List of required R Packages</h3>
+<h2>List of required R Packages</h2>
 ChIPseeker <br/>
 ReactomePA <br/>
 TxDb.Hsapiens.UCSC.hg19.knownGene <br/>
@@ -44,4 +40,5 @@ GO.db <br/>
 KEGG.db <br/>
 EnsDb.Hsapiens.v75 <br/>
 
-<h3>See manual for more information</h3> <br/>
+<h3>See manual for more information</h3> <a href="https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf">click here<a><br/>
+
