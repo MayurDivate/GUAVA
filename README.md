@@ -14,6 +14,8 @@ If R packages are not installed successfully, use following command to install R
 Rscript lib/InstallRequiredPackages.R 
 
 
+<h3> <a href="http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/"> Sample Data </a> </h3>
+
 <h1>To start GUAVA use following command</h1>
 
 <h2>GUI version</h2>
