@@ -3,8 +3,11 @@
 #########################################
 # installing BIOCONDA and prerequisites #
 #########################################
-# author mdivate@umac.mo                #
+# author MayurDivate			#
+# mdivate@umac.mo                	#
 #########################################
+
+
 
 
 osname="$(uname -s)"
@@ -26,25 +29,42 @@ minicondaLink=;
 
 get_minicodascript(){
 
+echo "---------- Downloading miniconda ----------------"
+wget --no-check-certificate $minicondaLink 
+
+
 if [ $machine = "Mac" ]; then
-	minicondaScript="Miniconda2-latest-MacOSX-x86_64.sh";
 	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh";
+	wget --no-check-certificate $minicondaLink;
+
 elif [ $machine = "Linx" ]; then
-	minicondaScript="Miniconda2-latest-Linux-x86_64.sh";
 	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh";
+	wget --no-check-certificate $minicondaLink;
+
 fi
 
 }
 
-get_minicodascript
+
+get_minicodascriptName(){
+
+if [ $machine = "Mac" ]; then
+        minicondaScript="Miniconda2-latest-MacOSX-x86_64.sh";
+elif [ $machine = "Linx" ]; then
+        minicondaScript="Miniconda2-latest-Linux-x86_64.sh";
+fi
+
+}
+
 
 ############################
 # Download miniconda setup #
 ############################
 
+get_minicodascriptName;
 
-echo "---------- Downloading miniconda ----------------"
-wget --no-check-certificate $minicondaLink 
+[ -f $minicondaScript ] && echo "Miniconda script exists" || get_minicodascript;
+
 
 
 ######################
