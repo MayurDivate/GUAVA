@@ -1,50 +1,73 @@
-<h1> GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data </h1>
+# GUAVA : A GUI tool for the Analysis and Visualization of ATAC-seq data
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/MayurDivate/GUAVASourceCode/blob/master/LICENSE) 
+[![OS: mac | linux](https://img.shields.io/badge/OS-mac%20%7C%20linux-red.svg)](https://github.com/MayurDivate/GUAVASourceCode#guava--a-gui-tool-for-the-analysis-and-visualization-of-atac-seq-data) 
+[![institute](https://img.shields.io/badge/Institute-University%20of%20Macau-blue.svg)](http://www.umac.mo)
+
+<p align="justify">In nutshell, GUAVA is a standalone GUI tool for processing, analyzing and visualizing ATAC-seq data. A user can start GUAVA analysis with raw reads to identify ATAC-seq signals. Then ATAC-seq signals from two or more samples can be compared using GUAVA to identify genomic loci with differentially enriched ATAC-seq signals. Furthermore, GUAVA also provides gene ontology and pathways enrichment analysis. Since to use GUAVA requires only several clicks and no learning curve, it will help novice bioinformatics researchers and biologist with minimal computer skills to analyze ATAC-seq data. Therefore, we believe that GUAVA is a powerful and time saving tool for ATAC-seq data analysis. GUAVA setup contains a script to configure and install dependencies which facilitates the GUAVA installation. GUAVA works on Linux and Mac OS.</p>
+
+> GUAVA is developed in the Edwin’s laboratory at University of Macau.
 
 
-<h2>Installation</h2>
-$ unzip GUAVA-master.zip<br/>
-$ mv GUAVA-master GUAVA<br/>
-$ cd GUAVA<br/>
 
-<h2>Installing Dependencies</h2>
-We have written configure.sh script for the easy installation of dependencies <br/>
-$ sh ./configure.sh <br/>
+## Quick Start
+First download the GUAVA package from here: [**GUAVA**](https://github.com/MayurDivate/GUAVA). 
+Then use following commands to unzip package.
 
-If R packages are not installed successfully, use following command to install R packages.<br/>
+```
+unzip GUAVA-master.zip
+mv GUAVA-master GUAVA
+cd GUAVA
+```
+## Installing Dependencies
+We have written configure.sh script for the easy installation of dependencies.
+```
+sh ./configure.sh <br/>
+```
+
+If R packages are not installed successfully, use following command to install R packages.
+```
 Rscript lib/InstallRequiredPackages.R 
+```
+
+## GUAVA manual
+[**See manual for more information**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
 
 
-<h3> <a href="http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/"> Sample Data </a> </h3>
+## To start GUAVA use following command
 
-<h1>To start GUAVA use following command</h1>
+**GUI version**
+```
+ java –jar GUAVA.jar
+```
+**For command line interface**
+```
+ java -jar GUAVA.jar [options]*
+```
+ 
+## Sample Data
+ To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
 
-<h2>GUI version</h2>
-  $ java –jar GUAVA.jar <br/>
+## System Requirements
+- Java 1.8 or latest
+- Bowtie version 1.1.2
+- Python version 2.7
+- MACS2 version 2.1.1.20160309
+- SAMtools Version: 1.3.1
+- R Version: >= 3.3.0<br/>
 
-<h2>For command line interface</h2>
-  $ java -jar GUAVA.jar [options]*<br/>
-  
-<h1>System Requirements</h1>
-  Java 1.8 or latest<br/>
-  Bowtie version 1.1.2<br/>
-  Python version 2.7<br/>
-  MACS2 version 2.1.1.20160309<br/>
-  SAMtools Version: 1.3.1<br/>
-  R Version: >= 3.3.0<br/><br/>
+### List of required R Packages
+- ChIPseeker
+- ReactomePA
+- TxDb.Hsapiens.UCSC.hg19.knownGene
+- TxDb.Mmusculus.UCSC.mm9.knownGene
+- TxDb.Mmusculus.UCSC.mm10.knownGene
+- org.Hs.eg.db
+- org.Mm.eg.db
+- ChIPpeakAnno
+- GO.db
+- KEGG.db
+- EnsDb.Hsapiens.v75
+- Rsubread
 
-<h2>List of required R Packages</h2>
-ChIPseeker <br/>
-ReactomePA <br/>
-TxDb.Hsapiens.UCSC.hg19.knownGene <br/>
-TxDb.Mmusculus.UCSC.mm9.knownGene <br/>
-TxDb.Mmusculus.UCSC.mm10.knownGene <br/>
-org.Hs.eg.db <br/>
-org.Mm.eg.db <br/>
-ChIPpeakAnno <br/>
-GO.db <br/>
-KEGG.db <br/>
-EnsDb.Hsapiens.v75 <br/>
-Rsubread <br/>
-<h2> <a href="https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf">
-See manual for more information<a><br/><h2/>
-
+## Support
+ If you're having any problem, please [raise an issue](https://github.com/MayurDivate/GUAVASourceCode/issues) on GitHub. 
