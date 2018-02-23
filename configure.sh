@@ -18,6 +18,7 @@ case "${osname}" in
     *)          machine="Unknown"
 esac
 
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 echo "Operating system :"${machine}
 
 
@@ -27,9 +28,8 @@ echo "Operating system :"${machine}
 
 conda=false
 installConda(){
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
-echo "GUAVA dependencies installation"
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+echo ""
+echo "#+++++++++++ GUAVA dependencies installation +++++++++++++++#"
 	toolPath=`which conda`
 	if [ -z $toolPath ]; then 
 		echo "Conda not found : "$1" ... .. ."
@@ -108,10 +108,10 @@ fi
 
 
 echo "---------- Adding BIOCONDA and other channels ----------------"
-conda config --add channels r
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
+#conda config --add channels r
+#conda config --add channels defaults
+#conda config --add channels conda-forge
+#conda config --add channels bioconda
 
 #######################################
 #######################################
@@ -122,42 +122,50 @@ conda config --add channels bioconda
 # if it is not found on system     #
 ####################################
 
-
+echo ""
+echo ""
+echo "#++++++++++++++ Installing Dependencies +++++++++++++++++++#"
 installX(){
-
-echo ""
-echo ""
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 	toolPath=`which $1`
-	
-	if [ -z $toolPath ]; then 
+	echo ""
+	if [ -z $toolPath ]; then
 		echo "INSTALLING : "$1" ... .. ."
 		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" : Found >>> "$toolPath;
+		echo $1" is already installed ! ";
+		echo $toolPath;
 	fi
 
 }
 
 
 installv(){
-
-echo ""
-echo ""
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 	toolPath=`which $1`
-	
+	echo ""
 	if [ -z $toolPath ]; then 
 		echo "INSTALLING : "$1" ... .. ."
 		conda install -y $1=$2 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" : Found >>> "$toolPath;
+		echo $1" is already installed ! ";
+		echo $toolPath;
 	fi
+}
 
+installUCSC(){
+	toolPath=`which $1`
+	echo ""
+	if [ -z $toolPath ]; then 
+		echo "INSTALLING : "$1" ... .. ."
+		tname="ucsc-"$1
+		conda install -y $tname -c bioconda
+	elif [ -n $toolPath ]; then
+		echo $1" is already installed ! ";
+		echo $toolPath;
+	fi
 }
 
 
-echo "---------- Installing Bowtie ----------------"
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 
 installX java
 installv bedtools 2.26.0  
@@ -169,15 +177,17 @@ installv macs2 2.1.1.20160309
 installv samtools 1.3.1
 installX picard
 installX igv
-installX ucsc-bedgraphtobigwig
+installUCSC bedGraphToBigWig
 
-conda install -y r-base
-installX bioconductor-chipseeker 
-installv bioconductor-deseq2 1.14.1
- 
-echo "####################################################################"
+#conda install -y r-base
+#installX bioconductor-chipseeker 
+#installv bioconductor-deseq2 1.14.1
 
-echo "[Done]" 
+echo "" 
+echo "" 
+echo "#++++++++++++++ F I N S H E D +++++++++++++++++++++++++++++#"
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+
 
 
 
