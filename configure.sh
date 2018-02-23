@@ -20,12 +20,33 @@ esac
 
 echo "Operating system :"${machine}
 
-minicondaScript=;
-minicondaLink=;
+
+################################
+# Check miniconda installation #
+################################
+
+conda=false
+installConda(){
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+echo "GUAVA dependencies installation"
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+	toolPath=`which conda`
+	if [ -z $toolPath ]; then 
+		echo "Conda not found : "$1" ... .. ."
+		conda=false
+	elif [ -n $toolPath ]; then
+		echo "conda : Found >>> "$toolPath;
+		conda=true
+	fi
+}
+
+installConda;
 
 ############################################
 # Get correct link of miniconda base on OS #
 ############################################
+minicondaScript=;
+minicondaLink=;
 
 get_minicodascript(){
 
@@ -61,9 +82,10 @@ fi
 # Download miniconda setup #
 ############################
 
-get_minicodascriptName;
-
-[ -f $minicondaScript ] && echo "Miniconda script exists" || get_minicodascript;
+if ! [ $conda ]; then
+	get_minicodascriptName;
+	[ -f $minicondaScript ] && echo "Miniconda script exists" || get_minicodascript;
+fi
 
 
 
@@ -71,8 +93,14 @@ get_minicodascriptName;
 # INSTALL Miniconday #
 ######################
 
-echo "---------- Installing  miniconda ----------------"
-sh $minicondaScript
+
+
+if ! [ $conda ]; then
+	echo "---------- Installing  miniconda ----------------"
+	sh $minicondaScript
+fi
+
+
 
 ##################################
 # Add BIOCONDA and other channel #
@@ -95,7 +123,7 @@ conda config --add channels bioconda
 ####################################
 
 
-install(){
+installX(){
 
 echo ""
 echo ""
@@ -129,11 +157,9 @@ echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 }
 
 
-
-
 echo "---------- Installing Bowtie ----------------"
 
-install java
+installX java
 installv bedtools 2.26.0  
 installv bowtie 1.1.2
 installv bowtie2 2.3.2 
@@ -141,12 +167,12 @@ installv cutadapt 1.13
 installv fastqc 0.11.5
 installv macs2 2.1.1.20160309
 installv samtools 1.3.1
-install picard
-install igv
-install ucsc-bedgraphtobigwig
+installX picard
+installX igv
+installX ucsc-bedgraphtobigwig
 
 conda install -y r-base
-install bioconductor-chipseeker 
+installX bioconductor-chipseeker 
 installv bioconductor-deseq2 1.14.1
  
 echo "####################################################################"
