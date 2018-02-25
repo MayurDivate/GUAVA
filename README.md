@@ -49,14 +49,22 @@ Rscript lib/InstallRequiredPackages.R
 
 ## System Requirements
 - Java 1.8 or latest
-- Bowtie version 1.1.2
 - Python version 2.7
+- R Version: >= 3.3.2<br/>
+
+## Required bioinformatics tools
+- Bowtie
+- Bowtie2
 - MACS2 version 2.1.1.20160309
 - SAMtools Version: 1.3.1
-- R Version: >= 3.3.0<br/>
+- FastQC
+- cutadapt
+- bedtools
+- bedGraphToBigWig
 
 ### List of required R Packages
 - ChIPseeker
+- DESeq2
 - ReactomePA
 - TxDb.Hsapiens.UCSC.hg19.knownGene
 - TxDb.Mmusculus.UCSC.mm9.knownGene
