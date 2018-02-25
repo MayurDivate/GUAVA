@@ -7,9 +7,6 @@
 # mdivate@umac.mo                	#
 #########################################
 
-
-
-
 osname="$(uname -s)"
 
 case "${osname}" in
@@ -23,6 +20,24 @@ echo "Operating system :"${machine}
 
 
 ################################
+###### Check R installation ####
+################################
+
+
+checkR(){
+	toolPath=`which R`
+	if [ -z $toolPath ]; then 
+		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+		echo "# ERROR: R Not found                              #"
+		echo "# =>> Please install R >= 3.4.1 then continue     #"
+		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+		exit 0;
+	fi
+}
+
+checkR;
+
+################################
 # Check miniconda installation #
 ################################
 
@@ -32,10 +47,8 @@ echo ""
 echo "#+++++++++++ GUAVA dependencies installation +++++++++++++++#"
 	toolPath=`which conda`
 	if [ -z $toolPath ]; then 
-		echo "Conda not found : "$1" ... .. ."
 		conda=false
 	elif [ -n $toolPath ]; then
-		echo "conda : Found >>> "$toolPath;
 		conda=true
 	fi
 }
@@ -51,8 +64,6 @@ minicondaLink=;
 get_minicodascript(){
 
 echo "---------- Downloading miniconda ----------------"
-wget --no-check-certificate $minicondaLink 
-
 
 if [ $machine = "Mac" ]; then
 	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh";
@@ -82,25 +93,24 @@ fi
 # Download miniconda setup #
 ############################
 
-if ! [ $conda ]; then
+if [ $conda != false ]; then
+	echo "conda found ! "
+elif [ $conda != true ]; then
+	echo "*** CONDA NOT FOUND *** "
+	echo "*Installing miniconda2*"
 	get_minicodascriptName;
 	[ -f $minicondaScript ] && echo "Miniconda script exists" || get_minicodascript;
 fi
 
-
-
 ######################
-# INSTALL Miniconday #
+# INSTALL Miniconda  #
 ######################
 
 
-
-if ! [ $conda ]; then
+if [ $conda != true ]; then
 	echo "---------- Installing  miniconda ----------------"
 	sh $minicondaScript
 fi
-
-
 
 ##################################
 # Add BIOCONDA and other channel #
@@ -108,10 +118,10 @@ fi
 
 
 echo "---------- Adding BIOCONDA and other channels ----------------"
-#conda config --add channels r
-#conda config --add channels defaults
-#conda config --add channels conda-forge
-#conda config --add channels bioconda
+conda config --add channels r
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
 
 #######################################
 #######################################
@@ -125,7 +135,21 @@ echo "---------- Adding BIOCONDA and other channels ----------------"
 echo ""
 echo ""
 echo "#++++++++++++++ Installing Dependencies +++++++++++++++++++#"
+
 installX(){
+	toolPath=`which $1`
+	echo ""
+	if [ -z $toolPath ]; then
+		echo "INSTALLING : "$1" ... .. ."
+		conda install -y $1 -c bioconda
+	elif [ -n $toolPath ]; then
+		echo $1" is already installed ! ";
+		echo $toolPath;
+	fi
+
+}
+
+installBC(){
 	toolPath=`which $1`
 	echo ""
 	if [ -z $toolPath ]; then
@@ -173,18 +197,45 @@ installv bowtie 1.1.2
 installv bowtie2 2.3.2 
 installv cutadapt 1.13
 installv fastqc 0.11.5
-installv macs2 2.1.1.20160309
+#installv macs2 2.1.1.20160309
 installv samtools 1.3.1
-installX picard
-installX igv
+installBC picard
+installBC igv
 installUCSC bedGraphToBigWig
 
 #conda install -y r-base
 #installX bioconductor-chipseeker 
 #installv bioconductor-deseq2 1.14.1
 
-echo "" 
-echo "" 
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#++++++++++++++ Check  R installation +++++++++++++++++++++#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+echo ""
+echo ""
+echo ""
+
+rPath=`which R`
+rINS=false
+
+if [ -z $rPath ]; then
+		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+		echo "#%%%%%%%%%%%%%  R is NOT INSTALLED !!! %%%%%%%%%%%%%%#"
+		echo "#%% Please install R and try again sh configure.sh %%#"
+		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+
+elif [ -n $rPath ]; then
+		echo "R is already installed ! ";
+		echo $rPath;
+		rINS=true
+fi
+
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+echo "#+++++++++ Installing required R packages +++++++++++++++++#"
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+if [ $rINS != false ]; then
+	Rscript ./lib/InstallRequiredPackages.R
+fi
+echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 echo "#++++++++++++++ F I N S H E D +++++++++++++++++++++++++++++#"
 echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
 

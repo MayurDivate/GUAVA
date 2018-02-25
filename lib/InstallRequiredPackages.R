@@ -1,5 +1,11 @@
+
+print("#++++++++++ LOADING BIOCONDUCTOR+++++++++++++++++++++++++++#")
+
 source("https://bioconductor.org/biocLite.R")
-biocLite(suppressAutoUpdate=TRUE)
+biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
+
+print("#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#")
+
 
 bioconductorPackages <- c("ChIPseeker","ReactomePA",
                           "TxDb.Hsapiens.UCSC.hg19.knownGene",
@@ -11,36 +17,50 @@ bioconductorPackages <- c("ChIPseeker","ReactomePA",
                           "GO.db",
                           "KEGG.db",
                           "EnsDb.Hsapiens.v75",
-			  "Rsubread")
-
+			  			  "Rsubread")
 
 
 checkBCpackage <- function(bcpkgname){ 
-c <- require(bcpkgname,character.only = TRUE)
+#c <- require(bcpkgname,character.only = TRUE)
+  c <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
   if(!c){
     print(paste("Trying to install",bcpkgname,sep = " "))
     biocLite(bcpkgname)
-    c2 <- require(bcpkgname,character.only = TRUE)
-      if(!c2){
-        print(paste("FAILED :",bcpkgname,sep = " "))
-        print(paste("Please install",bcpkgname,"manually",sep = " "))
-      }
-      else{
-        print(paste("Package",bcpkgname,"installed successfully",sep = " "))
-      }    
+    
+    c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
+    if(!c2){
+		  return(FALSE)
+    }
+    else{
+      print(paste("Package",bcpkgname,"installed successfully",sep = " "))
+      return(TRUE)
+    }    
   }
-  #else{
-  #  print(paste("Package",bcpkgname,"already installed",sep = " "))
-  #} 
-
+  else{
+    print(paste("# Package",bcpkgname,"already installed !!!",sep = " "))
+    return(TRUE)
+  }
+  
 }
 
+failedPackages <-c()
 
 for(i in 1:length(bioconductorPackages)){
-  checkBCpackage(bioconductorPackages[i])
-  print("")
+    if(!checkBCpackage(bioconductorPackages[i])){
+      failedPackages <-c(failedPackages,bioconductorPackages[i])
+    }
+  print("#")
+  print("#")
+  print("#")
 }
 
 
+if(length(failedPackages) > 0){
+  print("#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#")
+  print("#%%%%%%% Following packages are FAILED to install %%%%%%%%%#")
+  print(failedPackages)
+  print("#%%%%%%%% Please install these packages manually %%%%%%%%%%#")
+  print("#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#")
+}
 
 
