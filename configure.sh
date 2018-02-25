@@ -29,7 +29,7 @@ checkR(){
 	if [ -z $toolPath ]; then 
 		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
 		echo "# ERROR: R Not found                              #"
-		echo "# =>> Please install R >= 3.4.1 then continue     #"
+		echo "# =>> Please install R >= 3.3.2 then continue     #"
 		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
 		exit 0;
 	fi
@@ -69,7 +69,7 @@ if [ $machine = "Mac" ]; then
 	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh";
 	wget --no-check-certificate $minicondaLink;
 
-elif [ $machine = "Linx" ]; then
+elif [ $machine = "Linux" ]; then
 	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh";
 	wget --no-check-certificate $minicondaLink;
 
@@ -82,7 +82,7 @@ get_minicodascriptName(){
 
 if [ $machine = "Mac" ]; then
         minicondaScript="Miniconda2-latest-MacOSX-x86_64.sh";
-elif [ $machine = "Linx" ]; then
+elif [ $machine = "Linux" ]; then
         minicondaScript="Miniconda2-latest-Linux-x86_64.sh";
 fi
 
@@ -197,12 +197,12 @@ installv bowtie 1.1.2
 installv bowtie2 2.3.2 
 installv cutadapt 1.13
 installv fastqc 0.11.5
-#installv macs2 2.1.1.20160309
 installv samtools 1.3.1
 installBC picard
 installBC igv
 installUCSC bedGraphToBigWig
 
+#installv macs2 2.1.1.20160309
 #conda install -y r-base
 #installX bioconductor-chipseeker 
 #installv bioconductor-deseq2 1.14.1

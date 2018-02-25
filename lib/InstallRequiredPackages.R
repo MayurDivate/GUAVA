@@ -19,6 +19,7 @@ bioconductorPackages <- c("ChIPseeker","ReactomePA",
                           "EnsDb.Hsapiens.v75",
 			  			  "Rsubread")
 
+otherPackages <- c("ggplot2")
 
 checkBCpackage <- function(bcpkgname){ 
 #c <- require(bcpkgname,character.only = TRUE)
@@ -43,7 +44,36 @@ checkBCpackage <- function(bcpkgname){
   
 }
 
+checkPackage <- function(bcpkgname){ 
+  c <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
+  if(!c){
+    print(paste("Trying to install",bcpkgname,sep = " "))
+    install.packages(bcpkgname)
+    c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
+    if(!c2){
+		  return(FALSE)
+    }
+    else{
+      print(paste("Package",bcpkgname,"installed successfully",sep = " "))
+      return(TRUE)
+    }    
+  }
+  else{
+    print(paste("# Package",bcpkgname,"already installed !!!",sep = " "))
+    return(TRUE)
+  }
+}
+
 failedPackages <-c()
+
+for(i in 1:length(checkPackage)){
+    if(!checkPackage(checkPackage[i])){
+      failedPackages <-c(failedPackages,checkPackage[i])
+    }
+  print("#")
+  print("#")
+  print("#")
+}
 
 for(i in 1:length(bioconductorPackages)){
     if(!checkBCpackage(bioconductorPackages[i])){
