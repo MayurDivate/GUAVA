@@ -41,6 +41,8 @@ To know more about it, open the [**link**](https://cran.r-project.org/bin/linux/
 ## 2 Install other dependencies and R packages
 Step 1: Open the terminal <br/>
 Step 2: Use following commands to run configure.sh. <br/>
+Note: This may take a while to finish. Also, you will need to press ‘enter’ several times
+to continue. Additionally, answer all question with ‘yes’.
 
 ```
 cd ~/
