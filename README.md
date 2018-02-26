@@ -20,36 +20,45 @@ cd GUAVA
 ```
 ## Installing Dependencies
 Though we have written configure.sh script for the easy installation of dependencies, R and MACS2 need to be installed manually.
+<br/>
 
 ## 1 INSTALL R 
 #MAC 
-```
-Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/)
-Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg)
-Step 3: Double click on the downloaded file and follow the instructions
-```
+
+Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/) <br/>
+Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg) <br/>
+Step 3: Double click on the downloaded file and follow the instructions <br/>
+<br/>
+
 #Linux
-```
-Step 1: Open the terminal
-Step 2: Type command ` sudo apt-get install r-base` and press enter
-```
-To know more about it, open the following link
-https://cran.r-project.org/bin/linux/
-Then, choose appropriate Linux OS type.
+
+Step 1: Open the terminal <br/>
+Step 2: Type command ` sudo apt-get install r-base` and press enter <br/>
+<br/>
+
+To know more about it, open the [**link**](https://cran.r-project.org/bin/linux/). Then, choose appropriate Linux OS type.
 
 ## 2 Install other dependencies and R packages
-Step 1: Open the terminal
-Step 2: Use following commands to run configure.sh.
+Step 1: Open the terminal <br/>
+Step 2: Use following commands to run configure.sh. <br/>
 
 ```
 cd ~/
 sh ./configure.sh 
 ```
+<br/>
 
-If R packages are not installed successfully, use following command to install R packages.
+## 3 Install MACS2
+Step 1: Open the terminal <br/>
+Step 2: And use following commands <br/>
+
 ```
-Rscript lib/InstallRequiredPackages.R 
+cd ~/GUAVA
+python get-pip.py
+pip install MACS2
 ```
+<br/>
+
 
 ## GUAVA manual
 [**See manual for more information**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
