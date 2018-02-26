@@ -19,9 +19,27 @@ mv GUAVA-master GUAVA
 cd GUAVA
 ```
 ## Installing Dependencies
-We have written configure.sh script for the easy installation of dependencies.
+Though we have written configure.sh script for the easy installation of dependencies, R and MACS2 need to be installed manually.
+
+## INSTALL R 
+#MAC 
 ```
-sh ./configure.sh <br/>
+Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/)
+Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg)
+Step 3: Double click on the downloaded file and follow the instructions
+```
+#Linux
+```
+Step 1: Open the terminal
+Step 2: Type command 
+``` sudo apt-get install r-base``` and press enter
+```
+To know more about it, open the following link
+https://cran.r-project.org/bin/linux/
+Then, choose appropriate Linux OS type.
+
+```
+sh ./configure.sh 
 ```
 
 If R packages are not installed successfully, use following command to install R packages.
