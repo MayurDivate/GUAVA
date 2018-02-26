@@ -51,7 +51,9 @@ sh ./configure.sh
 ## 3 Install MACS2
 Step 1: Open the terminal <br/>
 Step 2: And use following commands <br/>
-
+NOTE: If permission denied, type 'sudo' at the beginning of the commands.
+Then, in order to proceed you have enter you password.
+ 
 ```
 cd ~/GUAVA
 python get-pip.py
