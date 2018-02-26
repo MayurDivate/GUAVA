@@ -31,8 +31,9 @@ isWget(){
 
 installWget(){
      if [ $machine = "Mac" ]; then
-	echo "installin wget"
+	echo " ---> installing brew <---"
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	echo " ---> installing wget <---"
 	brew install wget
      fi
 }
