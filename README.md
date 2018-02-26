@@ -31,8 +31,7 @@ Step 3: Double click on the downloaded file and follow the instructions
 #Linux
 ```
 Step 1: Open the terminal
-Step 2: Type command 
-``` sudo apt-get install r-base``` and press enter
+Step 2: Type command ` sudo apt-get install r-base` and press enter
 ```
 To know more about it, open the following link
 https://cran.r-project.org/bin/linux/
