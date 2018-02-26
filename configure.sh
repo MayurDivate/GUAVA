@@ -86,7 +86,8 @@ if [ $machine = "Mac" ]; then
 	wget --no-check-certificate $minicondaLink;
 
 elif [ $machine = "Linux" ]; then
-	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh";
+	minicondaLink="https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh"
+	isWget;
 	wget --no-check-certificate $minicondaLink;
 
 fi
