@@ -51,11 +51,11 @@ checkPackage <- function(bcpkgname){
     install.packages(bcpkgname)
     c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
     if(!c2){
-		  return(FALSE)
+	return(FALSE)
     }
     else{
-      print(paste("Package",bcpkgname,"installed successfully",sep = " "))
-      return(TRUE)
+	print(paste("Package",bcpkgname,"installed successfully",sep = " "))
+	return(TRUE)
     }    
   }
   else{
