@@ -20,10 +20,26 @@ echo "Operating system :"${machine}
 
 
 ################################
+###### INSTALL wget on MAC  ####
+################################
+isWget(){
+	toolPath=`which wget`
+        if [ -z $toolPath ]; then 
+	   installWget;
+	fi
+}
+
+installWget(){
+     if [ $machine = "Mac" ]; then
+	echo "installin wget"
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install wget
+     fi
+}
+
+################################
 ###### Check R installation ####
 ################################
-
-
 checkR(){
 	toolPath=`which R`
 	if [ -z $toolPath ]; then 
