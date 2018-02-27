@@ -27,7 +27,10 @@ Though we have written configure.sh script for the easy installation of dependen
 
 Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/) <br/>
 Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg) <br/>
-Step 3: Double click on the downloaded file and follow the instructions <br/>
+Step 3: Double click on the downloaded R package <br/>
+Step 4: This will open a R installation window <br/>
+Step 5: Click on the continue and follow the instructions on the screen <br/>
+Step 6: After the successful installation of R proceed to next section <br/>
 <br/>
 
 #Linux
