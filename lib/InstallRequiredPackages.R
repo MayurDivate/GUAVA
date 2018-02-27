@@ -66,19 +66,20 @@ checkPackage <- function(bcpkgname){
 
 failedPackages <-c()
 
-for(i in 1:length(checkPackage)){
-    if(!checkPackage(checkPackage[i])){
-      failedPackages <-c(failedPackages,checkPackage[i])
+for(i in 1:length(bioconductorPackages)){
+    if(!checkBCpackage(bioconductorPackages[i])){
+      failedPackages <-c(failedPackages,bioconductorPackages[i])
     }
   print("#")
   print("#")
   print("#")
 }
 
-for(i in 1:length(bioconductorPackages)){
-    if(!checkBCpackage(bioconductorPackages[i])){
-      failedPackages <-c(failedPackages,bioconductorPackages[i])
-    }
+
+for(i in 1:length(otherPackages)){
+  if(!checkPackage(otherPackages[i])){
+    failedPackages <-c(failedPackages,otherPackages[i])
+  }
   print("#")
   print("#")
   print("#")
