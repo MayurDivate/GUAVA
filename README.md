@@ -70,9 +70,11 @@ NOTE: If permission denied, type 'sudo' at the beginning of the commands.
 Then, to continue installation you have enter your password.
  
 ```
-cd ~/GUAVA
-python get-pip.py
-pip install MACS2
+           | with sudo
+-----------|------------
+cd ~/GUAVA | cd ~/GUAVA  
+python get-pip.py | sudo python get-pip.py 
+pip install MACS2 | sudo pip install MACS2 
 ```
 <br/>
 
