@@ -11,7 +11,7 @@
 
 ## Quick Start
 First download the GUAVA package from here: [**GUAVA**](https://github.com/MayurDivate/GUAVA). 
-Please check the manual to know how to open the terminal.
+Please check the [**manual**](https://github.com/MayurDivate/GUAVA#guava-manual) to know how to open the terminal.
 
 ## Download GUAVA
 Step 1: Click on the ``` clone or download ```<br/>
