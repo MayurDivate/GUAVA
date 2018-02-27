@@ -70,7 +70,7 @@ without sudo | with sudo
 ``` pip install MACS2 ``` | ``` sudo pip install MACS2 ```
 
 ## GUAVA manual
-[**click here to open manual**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
+[**click here**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
 
 
 ## To start GUAVA use following command
