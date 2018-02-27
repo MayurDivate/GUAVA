@@ -61,7 +61,6 @@ Step 1: Open the terminal <br/>
 Step 2: And use following commands <br/>
 NOTE: If permission denied, type 'sudo' at the beginning of the commands.
 Then, to continue installation you have enter your password.
- 
 
 without sudo | with sudo
 -----------|------------
@@ -69,10 +68,8 @@ without sudo | with sudo
 ``` python get-pip.py ``` | ``` sudo python get-pip.py ```
 ``` pip install MACS2 ``` | ``` sudo pip install MACS2 ```
 
-## GUAVA manual
-[**click here**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
-
-
+End of the installation part.
+<br/>
 ## To start GUAVA use following command
 
 **GUI version**
@@ -83,7 +80,11 @@ without sudo | with sudo
 ```
  java -jar GUAVA.jar [options]*
 ```
- 
+
+## GUAVA manual
+[**click here**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
+
+
 ## Sample Data
  To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
 
