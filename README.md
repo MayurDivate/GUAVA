@@ -7,8 +7,6 @@
 
 > GUAVA is developed in the Edwin’s laboratory at University of Macau.
 
-
-
 ## Quick Start
 First download the GUAVA package from here: [**GUAVA**](https://github.com/MayurDivate/GUAVA). 
 Please check the [**manual**](https://github.com/MayurDivate/GUAVA#guava-manual) to know how to open the terminal.
@@ -34,20 +32,16 @@ Though we have written configure.sh script for the easy installation of dependen
 
 ## 1 INSTALL R 
 #MAC 
-
 Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/) <br/>
 Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg) <br/>
 Step 3: Double click on the downloaded R package <br/>
 Step 4: This will open a R installation window <br/>
 Step 5: Click on the `continue` and follow the instructions on the screen <br/>
 Step 6: After the successful installation of R proceed to next section <br/>
-<br/>
 
 #Linux
-
 Step 1: Open the terminal <br/>
 Step 2: Type command ` sudo apt-get install r-base` and press enter <br/>
-<br/>
 
 To know more about it, open the [**link**](https://cran.r-project.org/bin/linux/). Then, choose appropriate Linux OS type.
 
@@ -61,7 +55,6 @@ to continue. Additionally, answer all question with ‘yes’.
 cd ~/
 sh ./configure.sh 
 ```
-<br/>
 
 ## 3 Install MACS2
 Step 1: Open the terminal <br/>
@@ -76,11 +69,8 @@ without sudo | with sudo
 ``` python get-pip.py ``` | ``` sudo python get-pip.py ```
 ``` pip install MACS2 ``` | ``` sudo pip install MACS2 ```
 
-<br/>
-
-
 ## GUAVA manual
-[**See manual for more information**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
+[**click here to open manual**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
 
 
 ## To start GUAVA use following command
@@ -126,6 +116,7 @@ without sudo | with sudo
 - KEGG.db
 - EnsDb.Hsapiens.v75
 - Rsubread
+- ggplot2
 
 ## Support
  If you're having any problem, please [raise an issue](https://github.com/MayurDivate/GUAVASourceCode/issues) on GitHub. 
