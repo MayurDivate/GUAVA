@@ -61,7 +61,6 @@ checkR;
 conda=false
 installConda(){
 echo ""
-echo "#+++++++++++ GUAVA dependencies installation +++++++++++++++#"
 	toolPath=`which conda`
 	if [ -z $toolPath ]; then 
 		conda=false
@@ -126,8 +125,21 @@ fi
 
 
 if [ $conda != true ]; then
+	echo "#+++++++++++ GUAVA dependencies installation +++++++++++++++#"
 	echo "---------- Installing  miniconda ----------------"
 	sh $minicondaScript
+	source ~/.bash_profile
+fi
+
+
+installConda;
+
+if [ $conda != true ]; then
+	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+	echo "# Please close the terminal and open the new terminal          #"
+	echo "# Repeat the step: 2 Install other dependencies and R packages #"
+	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+	exit 0;
 fi
 
 ##################################
