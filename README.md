@@ -17,8 +17,7 @@ Step 1: Click on the ``` clone or download ```<br/>
 Step 2: Click on the ``` Download ZIP ``` <br/>
 Step 4: This will save GUAVA zip package in the downloads folder<br/>
 
-If you downloaded package is in the folder ```Downloads``,<br/>
-Then use following commands to unzip package.<br/>
+If the downloaded package is in the folder ```Downloads```,Then use following commands to unzip package.<br/>
 
 ```
 mv ~/Downloads/GUAVA-master.zip ~/GUAVA.zip
@@ -26,7 +25,7 @@ cd ~/
 unzip GUAVA.zip 
 ```
 
-</b>NOTE<b/>: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal.  
+NOTE: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal.  
 
 ## Installing Dependencies
 Though we have written configure.sh script for the easy installation of dependencies, R and MACS2 need to be installed manually.
