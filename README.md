@@ -54,7 +54,7 @@ sh ./configure.sh
 Step 1: Open the terminal <br/>
 Step 2: And use following commands <br/>
 NOTE: If permission denied, type 'sudo' at the beginning of the commands.
-Then, in order to proceed you have enter you password.
+Then, to continue installation you have enter your password.
  
 ```
 cd ~/GUAVA
