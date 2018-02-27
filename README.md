@@ -11,13 +11,23 @@
 
 ## Quick Start
 First download the GUAVA package from here: [**GUAVA**](https://github.com/MayurDivate/GUAVA). 
-Then use following commands to unzip package.
+
+## Download GUAVA
+Step 1: Click on the ``` clone or download ```<br/>
+Step 2: Click on the ``` Download ZIP ``` <br/>
+Step 4: This will save GUAVA zip package in the downloads folder<br/>
+
+If you downloaded package is in the folder ```Downloads``,<br/>
+Then use following commands to unzip package.<br/>
 
 ```
-unzip GUAVA-master.zip
-mv GUAVA-master GUAVA
-cd GUAVA
+mv ~/Downloads/GUAVA-master.zip ~/GUAVA.zip
+cd ~/
+unzip GUAVA.zip 
 ```
+
+</b>NOTE<b/>: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal.  
+
 ## Installing Dependencies
 Though we have written configure.sh script for the easy installation of dependencies, R and MACS2 need to be installed manually.
 <br/>
@@ -29,7 +39,7 @@ Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/) <
 Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg) <br/>
 Step 3: Double click on the downloaded R package <br/>
 Step 4: This will open a R installation window <br/>
-Step 5: Click on the continue and follow the instructions on the screen <br/>
+Step 5: Click on the `continue` and follow the instructions on the screen <br/>
 Step 6: After the successful installation of R proceed to next section <br/>
 <br/>
 
