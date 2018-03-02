@@ -19,9 +19,10 @@ Step 4: This will save GUAVA zip package in the downloads folder<br/>
 If the downloaded package is in the folder ```Downloads```,Then type the commands below to unzip package on the terminal.<br/>
 
 ```
-mv ~/Downloads/GUAVA-master.zip ~/GUAVA.zip
+mv ~/Downloads/GUAVA-master.zip ~/
 cd ~/
-unzip GUAVA.zip 
+unzip GUAVA-master.zip
+mv GUAVA-master GUAVA 
 ```
 
 NOTE: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal. 
