@@ -56,6 +56,7 @@ to continue. Additionally, answer all question with ‘yes’.
 cd ~/
 sh ./configure.sh 
 ```
+[**Anaconda Error**](https://github.com/MayurDivate/GUAVA#anaconda-error-missing-write-permissions-in)
 
 ## 3 Install MACS2
 Step 1: Open the terminal <br/>
