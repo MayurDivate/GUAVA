@@ -87,7 +87,28 @@ End of the installation part.
 
 
 ## Sample Data
- To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
+To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
+
+## Anaconda Error: Missing write permissions in
+If you encounter error which says "Error: Missing write permissions in:/share/apps/anaconda***",<br/>
+please follow the commands below to create local Anaconda enviroment.  
+
+- Use the command below and replace the text after 'clone=' with your Anaconda path. Check the error to know correct path. 
+```
+conda create -n my_root --clone=/share/apps/anaconda2/4.0.0
+``` 
+- use commands below to activate loacal my_root anaconda
+```
+source activate my_root
+conda remove conda-build
+conda remove conda-env
+conda update anaconda
+```
+- try to install dependencies again
+``
+cd ~/GUAVA
+sh ./configure.sh
+``
 
 ## System Requirements
 - Java 1.8 or latest
