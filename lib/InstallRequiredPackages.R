@@ -7,12 +7,14 @@ biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 print("#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#")
 
 
-bioconductorPackages <- c("ChIPseeker","ReactomePA",
+bioconductorPackages <- c("ReactomePA",
+                          "GenomicFeatures",
                           "TxDb.Hsapiens.UCSC.hg19.knownGene",
                           "TxDb.Mmusculus.UCSC.mm9.knownGene",
                           "TxDb.Mmusculus.UCSC.mm10.knownGene",
                           "org.Hs.eg.db",
                           "org.Mm.eg.db",
+                          "ChIPseeker",
                           "ChIPpeakAnno",
                           "GO.db",
                           "KEGG.db",
@@ -22,7 +24,6 @@ bioconductorPackages <- c("ChIPseeker","ReactomePA",
 otherPackages <- c("ggplot2")
 
 checkBCpackage <- function(bcpkgname){ 
-#c <- require(bcpkgname,character.only = TRUE)
   c <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
   if(!c){
     print(paste("Trying to install",bcpkgname,sep = " "))
