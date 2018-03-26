@@ -7,19 +7,15 @@ biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 print("#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#")
 
 
-bioconductorPackages <- c("ReactomePA",
-                          "GenomicFeatures",
+bioconductorPackages <- c("ReactomePA", "GenomicFeatures",
                           "TxDb.Hsapiens.UCSC.hg19.knownGene",
                           "TxDb.Mmusculus.UCSC.mm9.knownGene",
                           "TxDb.Mmusculus.UCSC.mm10.knownGene",
-                          "org.Hs.eg.db",
-                          "org.Mm.eg.db",
-                          "ChIPseeker",
-                          "ChIPpeakAnno",
-                          "GO.db",
-                          "KEGG.db",
+                          "org.Hs.eg.db",  "org.Mm.eg.db",
+                          "ChIPseeker", "ChIPpeakAnno",
+                          "GO.db", "KEGG.db",
                           "EnsDb.Hsapiens.v75",
-			  			  "Rsubread")
+			  			  "Rsubread", "DESeq2")
 
 otherPackages <- c("ggplot2")
 
