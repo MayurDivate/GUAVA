@@ -8,6 +8,7 @@
 > GUAVA is developed in the Edwin’s laboratory at University of Macau.
 
 ## Quick Start
+## Download GUAVA
 First download the GUAVA package.<br/>
 <br/>
 Step 1: Go to the [**link**](https://github.com/MayurDivate/GUAVA/releases) <br/>
@@ -16,12 +17,7 @@ Step 3: This will save GUAVA zip package in the downloads folder <br/>
 <br/>
 Then you will need to open the terminal to complete installation.<br/>
 Please check the [**manual**](https://github.com/MayurDivate/GUAVA#guava-manual) to know how to open the terminal.<br/>
-
-## Download GUAVA
-Step 1: Click on the ``` clone or download ```<br/>
-Step 2: Click on the ``` Download ZIP ``` <br/>
-Step 4: This will save GUAVA zip package in the downloads folder<br/>
-
+<br/>
 If the downloaded package is in the folder ```Downloads```,Then type the commands below to unzip package on the terminal.<br/>
 
 ```
