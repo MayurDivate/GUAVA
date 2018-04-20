@@ -8,7 +8,7 @@
 > GUAVA is developed in the Edwin’s laboratory at University of Macau.
 
 ## Quick Start
-## Download GUAVA
+## Download A
 First download the GUAVA package.<br/>
 <br/>
 Step 1: Go to the [**link**](https://github.com/MayurDivate/GUAVA/releases) <br/>
@@ -86,7 +86,7 @@ End of the installation part.
 ```
 
 ## GUAVA manual
-[**click here**](https://github.com/MayurDivate/GUAVA/blob/master/GUAVA_Manual.pdf)
+[**click here**](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/docs/GUAVA_manual.pdf)
 
 
 ## Sample Data
