@@ -5,15 +5,12 @@
 
 <p align="justify">GUAVA is a standalone GUI tool for the processing, analysis, and visualization of ATAC-seq data from raw sequencing reads to ATAC-seq signals. GUAVA can compare ATAC-seq signals from two conditions to identify genomic loci with differentially enriched ATAC-seq signals. Furthermore, GUAVA provides results on gene ontology and pathways analysis. Since using GUAVA requires only several clicks and no learning curve, it will help novice bioinformatics researchers and biologist with minimal computer skills to analyze ATAC-seq data. Therefore, we believe that GUAVA is a powerful and time saving tool for ATAC-seq data analysis. The GUAVA setup contains a script to configure and install dependencies which facilitates the GUAVA installation. GUAVA works on Linux and Mac OS. <br/>
 <br/>
-<br/>
 This document contains all the information that is required to install and use GUAVA.<br/>
 <br/>
-GUAVA was developed in Edwin Cheung’s laboratory at the University of Macau.<br/>
 </p>
-<br/>
 
+> GUAVA was developed in Edwin Cheung’s laboratory at the University of Macau.<br/>
 
-> GUAVA is developed in the Edwin’s laboratory at University of Macau.
 
 ## Quick Start
 ## How to download GUAVA 
