@@ -59,7 +59,7 @@ Note: This may take a while to finish. Also, you will need to press ‘enter’ 
 to continue. Additionally, answer all question with ‘yes’.
 
 ```
-cd ~/
+cd ~/GUAVA-1
 sh ./configure.sh 
 ```
 [**Anaconda Error**](https://github.com/MayurDivate/GUAVA#anaconda-error-missing-write-permissions-in)
