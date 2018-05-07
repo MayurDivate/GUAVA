@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #########################################
-# installing BIOCONDA and prerequisites #
+# installing prerequisites for GUAVA v1 #
 #########################################
 # author MayurDivate			#
 # mdivate@umac.mo                	#
@@ -15,13 +15,13 @@ case "${osname}" in
     *)          machine="Unknown"
 esac
 
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
-echo "Operating system :"${machine}
+echo "INSTALLING GUAVA-1 dependencies"
+echo ">>>>>> Operating system :"${machine}
 
 
-################################
-###### INSTALL wget on MAC  ####
-################################
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL wget on MAC  ####
+
 isWget(){
 	toolPath=`which wget`
         if [ -z $toolPath ]; then 
@@ -31,35 +31,87 @@ isWget(){
 
 installWget(){
      if [ $machine = "Mac" ]; then
-	echo " ---> installing brew <---"
+	echo ">>> >> > Installing brew > >> >>>"
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	echo " ---> installing wget <---"
+	echo ">>> >> > Installing wget > >> >>>"
 	brew install wget
      fi
 }
 
-################################
-###### Check R installation ####
-################################
+isWget;
+
+################################################################################################################################################################
+
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>> Installing R ####
+
+isR=false;
+
+linuxR(){
+  echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
+  sudo apt-get update
+  sudo apt-get install r-base
+
+
+}
+
+downloadR(){
+   wget https://cran.r-project.org/bin/macosx/R-3.5.0.pkg -O R-3.5.0.pkg
+  #wget https://cran.r-project.org/bin/macosx/R-3.3.3.pkg;
+}
+
+installR(){
+  if [ $machine = "Mac" ]; then
+	echo ">>> >> > Downloading R > >> >>>"
+	downloadR;
+	sudo installer -verbose -pkg R-3.5.0.pkg -target / 
+	#sudo installer -verbose -pkg R-3.5.0.pkg -target /
+  else
+	linuxR;
+  fi
+  
+ 
+}
+
 checkR(){
 	toolPath=`which R`
 	if [ -z $toolPath ]; then 
-		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
-		echo "# ERROR: R Not found                              #"
-		echo "# =>> Please install R >= 3.3.2 then continue     #"
-		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
-		exit 0;
+		echo ">>> >> > Installing R > >> >>>"
+		installR;
+	else
+		echo ">>> R is already installed !"
+		isR=true;
 	fi
 }
 
 checkR;
 
-################################
-# Check miniconda installation #
-################################
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing required R packages ######
+checkR;
+
+if [ $isR != false ]; then
+	echo ">>> >> > Installing R packages > >> >";
+	Rscript ./lib/InstallRequiredPackages.R
+else
+	exit 0;
+fi
+
+
+
+
+
+
+
+
+
+################################################################################################################################################################
+
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing Miniconda ######
 
 conda=false
-installConda(){
+isConda(){
 echo ""
 	toolPath=`which conda`
 	if [ -z $toolPath ]; then 
@@ -69,7 +121,7 @@ echo ""
 	fi
 }
 
-installConda;
+isConda;
 
 ############################################
 # Get correct link of miniconda base on OS #
@@ -110,11 +162,11 @@ fi
 # Download miniconda setup #
 ############################
 
+
 if [ $conda != false ]; then
-	echo "conda found ! "
+	echo ">>> CONDA is already installed !"
 elif [ $conda != true ]; then
-	echo "*** CONDA NOT FOUND *** "
-	echo "*Installing miniconda2*"
+	echo ">>> >> > Downloading miniconda2 > >> >>>"
 	get_minicodascriptName;
 	[ -f $minicondaScript ] && echo "Miniconda script exists" || get_minicodascript;
 fi
@@ -125,14 +177,14 @@ fi
 
 
 if [ $conda != true ]; then
-	echo "#+++++++++++ GUAVA dependencies installation +++++++++++++++#"
+	echo ">>> >> > GUAVA dependencies installation < << <<<"
 	echo "---------- Installing  miniconda ----------------"
 	sh $minicondaScript
 	source ~/.bash_profile
 fi
 
 
-installConda;
+isConda;
 
 if [ $conda != true ]; then
 	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
@@ -140,21 +192,14 @@ if [ $conda != true ]; then
 	echo "# Repeat the step: 2 Install other dependencies and R packages #"
 	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
 	exit 0;
+else
+	echo "---------- Adding BIOCONDA and other channels ----------------"
+	conda config --add channels r
+	conda config --add channels defaults
+	conda config --add channels conda-forge
+	conda config --add channels bioconda
 fi
 
-##################################
-# Add BIOCONDA and other channel #
-##################################
-
-
-echo "---------- Adding BIOCONDA and other channels ----------------"
-conda config --add channels r
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
-
-#######################################
-#######################################
 
 
 ####################################
@@ -164,16 +209,16 @@ conda config --add channels bioconda
 
 echo ""
 echo ""
-echo "#++++++++++++++ Installing Dependencies +++++++++++++++++++#"
+echo ">>> >> > Installing dependencies > >> >>>"
 
 installX(){
 	toolPath=`which $1`
 	echo ""
 	if [ -z $toolPath ]; then
-		echo "INSTALLING : "$1" ... .. ."
+		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" is already installed ! ";
+		echo ">>>>> "$1" is already installed ! ";
 		echo $toolPath;
 	fi
 
@@ -183,10 +228,10 @@ installBC(){
 	toolPath=`which $1`
 	echo ""
 	if [ -z $toolPath ]; then
-		echo "INSTALLING : "$1" ... .. ."
+		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" is already installed ! ";
+		echo ">>>>> "$1" is already installed ! ";
 		echo $toolPath;
 	fi
 
@@ -197,10 +242,10 @@ installv(){
 	toolPath=`which $1`
 	echo ""
 	if [ -z $toolPath ]; then 
-		echo "INSTALLING : "$1" ... .. ."
+		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1=$2 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" is already installed ! ";
+		echo ">>>>> "$1" is already installed ! ";
 		echo $toolPath;
 	fi
 }
@@ -209,11 +254,11 @@ installUCSC(){
 	toolPath=`which $1`
 	echo ""
 	if [ -z $toolPath ]; then 
-		echo "INSTALLING : "$1" ... .. ."
+		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		tname="ucsc-"$1
 		conda install -y $tname -c bioconda
 	elif [ -n $toolPath ]; then
-		echo $1" is already installed ! ";
+		echo ">>>>> "$1" is already installed ! ";
 		echo $toolPath;
 	fi
 }
@@ -232,45 +277,71 @@ installBC picard
 installBC igv
 installUCSC bedGraphToBigWig
 
-#installv macs2 2.1.1.20160309
-#conda install -y r-base
-#installX bioconductor-chipseeker 
-#installv bioconductor-deseq2 1.14.1
 
-#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-#++++++++++++++ Check  R installation +++++++++++++++++++++#
-#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-echo ""
-echo ""
-echo ""
 
-rPath=`which R`
-rINS=false
 
-if [ -z $rPath ]; then
-		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
-		echo "#%%%%%%%%%%%%%  R is NOT INSTALLED !!! %%%%%%%%%%%%%%#"
-		echo "#%% Please install R and try again sh configure.sh %%#"
-		echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
 
-elif [ -n $rPath ]; then
-		echo "R is already installed ! ";
-		echo $rPath;
-		rINS=true
+
+
+
+
+
+
+
+################################################################################################################################################################
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing MACS2 ######
+
+
+isMACS2=false;
+
+installMACS2(){
+
+macs2Path=`which macs2`
+
+if [ -z $macs2Path ]; then
+   pipPath=`which pip`
+
+   if [ -z $pipPath ]; then
+      printf "\n\n\n"
+      echo ">>> >> > Installing pip > >> >>>"
+      python get-pip.py
+   fi
+
+   python -c "import numpy";
+   isNumpy=`echo $?`
+
+   if [ $isNumpy > 0 ]; then
+       printf "\n\n\n"
+       echo ">>> >> > Installing Numpy > >> >>>"
+
+       if [ $machine = "Mac" ]; then
+          sudo -H pip install numpy;
+       else
+          pip install numpy;
+       fi 
+
+   fi
+
+   printf "\n\n\n" 
+   echo ">>> >> > Installing MACS2 > >> >>>"
+   
+   if [ $machine = "Mac" ]; then
+      sudo -H pip install macs2;
+   else
+      pip install macs2;
+   fi 
+  
+elif [ -n $macs2Path ]; then
+     printf "\n\n\n"
+     echo ">>> MACS2 is already installed ! ";
+     echo ">>> $macs2Path";
 fi
 
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
-echo "#+++++++++ Installing required R packages +++++++++++++++++#"
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
-if [ $rINS != false ]; then
-	Rscript ./lib/InstallRequiredPackages.R
-fi
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
-echo "#++++++++++++++ F I N S H E D +++++++++++++++++++++++++++++#"
-echo "#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#"
+}
 
 
-
+installMACS2;
 
 
 
