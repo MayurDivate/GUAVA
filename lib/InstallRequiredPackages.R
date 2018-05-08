@@ -1,10 +1,10 @@
 
-print("#++++++++++ LOADING BIOCONDUCTOR+++++++++++++++++++++++++++#")
+print(">>> >> > Loading BIOCONDUCTOR > >> >>>")
 
 source("https://bioconductor.org/biocLite.R")
 biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 
-print("#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#")
+print(">>> >> > checking required packages > >> >>>")
 
 
 bioconductorPackages <- c("ReactomePA", "GenomicFeatures",
@@ -12,17 +12,15 @@ bioconductorPackages <- c("ReactomePA", "GenomicFeatures",
                           "TxDb.Mmusculus.UCSC.mm9.knownGene",
                           "TxDb.Mmusculus.UCSC.mm10.knownGene",
                           "org.Hs.eg.db",  "org.Mm.eg.db",
-                          "ChIPseeker", "ChIPpeakAnno",
-                          "GO.db", "KEGG.db",
-                          "EnsDb.Hsapiens.v75",
-			  			  "Rsubread", "DESeq2")
+                          "ChIPpeakAnno",
+                          "GO.db", "KEGG.db", "EnsDb.Hsapiens.v75", "Rsubread", "DESeq2")
 
 otherPackages <- c("ggplot2")
 
 checkBCpackage <- function(bcpkgname){ 
-  c <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
+  c <- suppressMessages(library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE))
   if(!c){
-    print(paste("Trying to install",bcpkgname,sep = " "))
+    print(paste(">>> >> > Trying to install",bcpkgname,"> >> >>>",sep = " "))
     biocLite(bcpkgname)
     
     c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
@@ -30,12 +28,12 @@ checkBCpackage <- function(bcpkgname){
 		  return(FALSE)
     }
     else{
-      print(paste("Package",bcpkgname,"installed successfully",sep = " "))
+      print(paste(">>>>> Package",bcpkgname,"installed successfully",sep = " "))
       return(TRUE)
     }    
   }
   else{
-    print(paste("# Package",bcpkgname,"already installed !!!",sep = " "))
+    print(paste(">>>>> Found: ",bcpkgname,"<<<<<",sep = " "))
     return(TRUE)
   }
   
@@ -44,19 +42,19 @@ checkBCpackage <- function(bcpkgname){
 checkPackage <- function(bcpkgname){ 
   c <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
   if(!c){
-    print(paste("Trying to install",bcpkgname,sep = " "))
+    print(paste(">>> >> > Trying to install",bcpkgname,"> >> >>>",sep = " "))
     install.packages(bcpkgname)
     c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
     if(!c2){
 	return(FALSE)
     }
     else{
-	print(paste("Package",bcpkgname,"installed successfully",sep = " "))
+	print(paste(">>>>> Package",bcpkgname,"installed successfully",sep = " "))
 	return(TRUE)
     }    
   }
   else{
-    print(paste("# Package",bcpkgname,"already installed !!!",sep = " "))
+    print(paste(">>>>> Found:",bcpkgname,"<<<<<",sep = " "))
     return(TRUE)
   }
 }
@@ -67,9 +65,6 @@ for(i in 1:length(bioconductorPackages)){
     if(!checkBCpackage(bioconductorPackages[i])){
       failedPackages <-c(failedPackages,bioconductorPackages[i])
     }
-  print("#")
-  print("#")
-  print("#")
 }
 
 
@@ -77,9 +72,6 @@ for(i in 1:length(otherPackages)){
   if(!checkPackage(otherPackages[i])){
     failedPackages <-c(failedPackages,otherPackages[i])
   }
-  print("#")
-  print("#")
-  print("#")
 }
 
 
