@@ -53,8 +53,12 @@ linuxR(){
 }
 
 macR(){
-   curl -O https://cran.r-project.org/bin/macosx/R-3.5.0.pkg;
-  #curl -O https://cran.r-project.org/bin/macosx/R-3.3.3.pkg;
+
+  rpkg="R-3.3.3.pkg";
+
+  if [ -f $rpkg ]; then
+	curl -O https://cran.r-project.org/bin/macosx/R-3.5.0.pkg;
+  fi
 }
 
 installR(){
@@ -183,10 +187,13 @@ fi
 isConda;
 
 if [ $conda != true ]; then
-	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
-	echo "# Please close the terminal and open the new terminal          #"
-	echo "# Repeat the step: 2 Install other dependencies and R packages #"
-	echo "#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#"
+	printf "\n\n\n\n"
+	echo "******************************************************"
+	echo "** >>>>>>>>>>> unable to load conda <<<<<<<<<<<<<<< **"
+	echo "** >>>>>>>> please CLOSE THE TERMINAL <<<<<<<<<<<<< **"
+	echo "** ++++++++ Then open the new terminal ++++++++++++ **"
+	echo "** +++++++  again run the configure.sh  +++++++++++ **"
+	echo "******************************************************"
 	exit 0;
 else
 	echo "---------- Adding BIOCONDA and other channels ----------------"

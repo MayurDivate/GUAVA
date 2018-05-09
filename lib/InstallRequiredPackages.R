@@ -1,6 +1,7 @@
 
 print(">>> >> > Loading BIOCONDUCTOR > >> >>>")
 
+
 source("https://bioconductor.org/biocLite.R")
 biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 
@@ -20,7 +21,7 @@ checkBCpackage <- function(bcpkgname){
   c <- suppressMessages(library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE))
   if(!c){
     print(paste(">>> >> > Trying to install",bcpkgname,"> >> >>>",sep = " "))
-    biocLite(bcpkgname)
+    biocLite(bcpkgname, ask = TRUE)
     
     c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
     if(!c2){
@@ -76,9 +77,10 @@ for(i in 1:length(bioconductorPackages)){
 
 
 if(length(failedPackages) > 0){
+
   print("#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#")
   print("#%%%%%%% Following packages are FAILED to install %%%%%%%%%#")
-  print(failedPackages)
+  print(paste(">",failedPackages,"<"))
   print("#%%%%%%%% Please install these packages manually %%%%%%%%%%#")
   print("#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#")
 }
