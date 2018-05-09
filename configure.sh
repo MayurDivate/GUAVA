@@ -52,6 +52,7 @@ linuxR(){
   sudo apt-get update
   sudo apt-get install r-base
 
+
 }
 
 downloadR(){
@@ -217,20 +218,21 @@ installX(){
 		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo ">>>>>  FOUND: "$1" <<<<<";
-		#echo $toolPath;
+		echo ">>>>> "$1" is already installed ! ";
+		echo $toolPath;
 	fi
 
 }
 
 installBC(){
 	toolPath=`which $1`
+	echo ""
 	if [ -z $toolPath ]; then
 		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo ">>>>>  FOUND: "$1" <<<<<";
-		#echo $toolPath;
+		echo ">>>>> "$1" is already installed ! ";
+		echo $toolPath;
 	fi
 
 }
@@ -238,23 +240,26 @@ installBC(){
 
 installv(){
 	toolPath=`which $1`
+	echo ""
 	if [ -z $toolPath ]; then 
 		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		conda install -y $1=$2 -c bioconda
 	elif [ -n $toolPath ]; then
-		echo ">>>>>  FOUND: "$1" <<<<<";
-		#echo $toolPath;
+		echo ">>>>> "$1" is already installed ! ";
+		echo $toolPath;
 	fi
 }
 
 installUCSC(){
 	toolPath=`which $1`
+	echo ""
 	if [ -z $toolPath ]; then 
 		echo ">>> >> > INSTALLING : "$1" > >> >>>"
 		tname="ucsc-"$1
 		conda install -y $tname -c bioconda
 	elif [ -n $toolPath ]; then
-		echo ">>>>> FOUND: "$1" <<<<<";
+		echo ">>>>> "$1" is already installed ! ";
+		echo $toolPath;
 	fi
 }
 
@@ -328,9 +333,9 @@ if [ -z $macs2Path ]; then
    fi 
   
 elif [ -n $macs2Path ]; then
-     printf "\n"
+     printf "\n\n\n"
      echo ">>> MACS2 is already installed ! ";
-     #echo ">>> $macs2Path";
+     echo ">>> $macs2Path";
 fi
 
 }
