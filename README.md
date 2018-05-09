@@ -34,29 +34,14 @@ unzip GUAVA-1.zip
 NOTE: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal. 
 
 ## Installing Dependencies
-Though we have written configure.sh script for the easy installation of dependencies, R and MACS2 need to be installed manually.
+We have written configure.sh script for the easy installation of dependencies such R, MACS2, Bowtie, samtools etc.
 <br/>
 
-## 1 INSTALL R 
-#MAC 
-Step 1: Download R => [**Click Here**](https://cran.r-project.org/bin/macosx/) <br/>
-Step 2: Click on the R-X.X.X.pkg file link (e.g. R-3.4.3.pkg) <br/>
-Step 3: Double click on the downloaded R package <br/>
-Step 4: This will open a R installation window <br/>
-Step 5: Click on the `continue` and follow the instructions on the screen <br/>
-Step 6: After the successful installation of R proceed to next section <br/>
-
-#Linux
-Step 1: Open the terminal <br/>
-Step 2: Type command ` sudo apt-get install r-base` and press enter <br/>
-
-To know more about it, open the [**link**](https://cran.r-project.org/bin/linux/). Then, choose appropriate Linux OS type.
-
-## 2 Install other dependencies and R packages
+## Run Script: sonfigure.sh 
 Step 1: Open the terminal <br/>
 Step 2: Use following commands to run configure.sh. <br/>
 Note: This may take a while to finish. Also, you will need to press ‘enter’ several times
-to continue. Additionally, answer all question with ‘yes’.
+to continue. Please enter password whenever required. Additionally, answer all question with ‘yes’.
 
 ```
 cd ~/GUAVA-1
@@ -64,19 +49,8 @@ sh ./configure.sh
 ```
 [**Anaconda Error**](https://github.com/MayurDivate/GUAVA#anaconda-error-missing-write-permissions-in)
 
-## 3 Install MACS2
-Step 1: Open the terminal <br/>
-Step 2: And use following commands <br/>
-NOTE: If permission denied, type 'sudo' at the beginning of the commands.
-Then, to continue installation you have enter your password.
-
-without sudo | with sudo
------------|------------
-``` cd ~/GUAVA-1 ``` | ``` cd ~/GUAVA-1 ```  
-``` python get-pip.py ``` | ``` sudo python get-pip.py ```
-``` pip install MACS2 ``` | ``` sudo pip install MACS2 ```
-
 End of the installation part.
+
 <br/>
 ## To start GUAVA use following command
 
