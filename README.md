@@ -37,7 +37,7 @@ NOTE: If you have downloaded and saved GUAVA package in any other folder that Do
 We have written configure.sh script for the easy installation of dependencies such R, MACS2, Bowtie, samtools etc.
 <br/>
 
-## Run Script: sonfigure.sh 
+### Run Script: sonfigure.sh 
 Step 1: Open the terminal <br/>
 Step 2: Use following commands to run configure.sh. <br/>
 Note: This may take a while to finish. Also, you will need to press ‘enter’ several times
@@ -51,7 +51,8 @@ sh ./configure.sh
 
 End of the installation part.
 
-<br/>
+<bri/>
+
 ## To start GUAVA use following command
 
 **GUI version**
