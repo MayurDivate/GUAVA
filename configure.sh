@@ -19,6 +19,7 @@ echo "INSTALLING GUAVA-1 dependencies"
 echo ">>>>>> Operating system :"${machine}
 
 
+isSuccess=false;
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL wget on linux####
 
@@ -89,6 +90,8 @@ if [ $isR != false ]; then
 	echo ">>> >> > Installing R packages > >> >";
 	Rscript ./lib/InstallRequiredPackages.R
 else
+	echo ""
+	echo ">>>>>>> Error: could not install R"
 	exit 0;
 fi
 
@@ -97,10 +100,7 @@ fi
 
 
 
-
-
-
-################################################################################################################################################################
+##############################################################################################################################
 
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>  Installing Miniconda ######
@@ -116,7 +116,6 @@ echo ""
 	fi
 }
 
-isConda;
 
 ############################################
 # Get correct link of miniconda base on OS #
@@ -157,6 +156,8 @@ fi
 # Download miniconda setup #
 ############################
 
+
+isConda;
 
 if [ $conda != false ]; then
 	echo ">>> CONDA is already installed !"
