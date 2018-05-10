@@ -53,12 +53,7 @@ linuxR(){
 }
 
 macR(){
-
-  rpkg="R-3.3.3.pkg";
-
-  if [ -f $rpkg ]; then
 	curl -O https://cran.r-project.org/bin/macosx/R-3.5.0.pkg;
-  fi
 }
 
 installR(){
