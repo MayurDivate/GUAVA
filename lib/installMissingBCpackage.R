@@ -11,6 +11,7 @@ checkBCpackage <- function(bcpkgname){
       c2 <- suppressMessages(library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE))  
 
       if(!c2){
+	print(paste(">>>>> Required package not found:",bcpkgname,sep=" "))
         return(FALSE)
         }
       else{
