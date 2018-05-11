@@ -13,7 +13,7 @@ This document contains all the information that is required to install and use G
 
 
 ## Quick Start
-### How to download GUAVA 
+## How to download GUAVA 
 First download the GUAVA package.<br/>
 <br/>
 Step 1: Go to the [**link**](https://github.com/MayurDivate/GUAVA/releases) <br/>
@@ -23,7 +23,7 @@ Step 3: This will save GUAVA zip package in the downloads folder <br/>
 Then you will need to open the terminal to complete installation.<br/>
 Please check the [**manual**](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/docs/GUAVA_manual.pdf) to know how to open the terminal.<br/>
 <br/>
-If the downloaded package is in the folder ```Downloads```,Then type the commands below to unzip package on the terminal.<br/>
+If the downloaded package is in the folder ```Downloads```, Then type the commands below in the Terminal to move "GUAVA-1.zip" into the home folder and unzip it.<br/>
 
 ```
 mv ~/Downloads/GUAVA-1.zip ~/
@@ -31,45 +31,49 @@ cd ~/
 unzip GUAVA-1.zip
 ```
 
-NOTE: If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal. 
+> NOTE <br/>
+> If you have already unzipped package then remove the '.zip' suffix in the first command and skip the third command.<br/>
+> If you have downloaded and saved GUAVA package in any other folder that Downloads. You will have to use complete path of that folder in above command instead of `~/Downloads/GUAVA-master.zip`. To copy path, simply copy the downloaded package and paste it on the terminal. 
 
-## Installing Dependencies
-We have written configure.sh script for the easy installation of dependencies such R, MACS2, Bowtie, samtools etc.
+## Installing GUAVA
+GUAVA depends on other tools in order to process ATAC-seq data (e.g. Bowtie for alignment). If any of the dependencies are not found on the system, GUAVA will not work properly. Therefore, to help users to install the dependencies, we have written a program called configure.sh, which automatically downloads and installs the dependencies. Please follow the steps given below to run configure.sh.
 <br/>
 
-### Run Script: sonfigure.sh 
-
-Step 1: Open the terminal <br/>
-Step 2: Use following commands to run configure.sh. <br/>
-Note: This may take a while to finish. Also, you will need to press ‘enter’ several times
-to continue. Please enter password whenever required. Additionally, answer all question with ‘yes’.
+#### Run configure.sh
 
 ```
 cd ~/GUAVA-1
 sh ./configure.sh 
 ```
-[**Anaconda Error**](https://github.com/MayurDivate/GUAVA#anaconda-error-missing-write-permissions-in)
-
-End of the installation part.
-
 <br/>
 
-## To start GUAVA use following command
+> NOTE <br/>
+> This may take 15-20 mins to finish. Also, you will need to press ‘enter’ several times to continue. Additionally, answer all questions with ‘yes’. If you see the message about the ‘Xcode’, choose ‘install’ to continue. Some users may need to repeat step 1-3 in the new terminal if it could not load the ‘conda’. 
+
+> Error: [**Anaconda Error**](https://github.com/MayurDivate/GUAVA#anaconda-error-missing-write-permissions-in)
+
+**End of the installation, Close the terminal.**
+
+
+## How to start GUAVA 
 
 **GUI version**
 ```
  java –jar GUAVA.jar
 ```
+
+<br/>
+
 **For command line interface**
 ```
  java -jar GUAVA.jar [options]*
 ```
 
-## GUAVA manual
-[**click here**](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/docs/GUAVA_manual.pdf)
+## GUAVA manual 
+To download manual [**click here**](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/docs/GUAVA_manual.pdf)
+<br/>
 
-
-## Sample Data
+## Sample Data 
 To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
 
 ## Anaconda Error: Missing write permissions in
@@ -98,7 +102,7 @@ sh ./configure.sh
 - Python version 2.7
 - R Version: >= 3.3.2<br/>
 
-## Required bioinformatics tools
+## Required bioinformatic tools
 - Bowtie
 - Bowtie2
 - MACS2 version 2.1.1.20160309
@@ -109,17 +113,19 @@ sh ./configure.sh
 - bedGraphToBigWig
 
 ### List of required R Packages
-- ChIPseeker
 - DESeq2
+- ChIPpeakAnno
+- GO.db
+- KEGG.db
+- EnsDb.Hsapiens.v75
+- Rsubread
+- ggplot2
 - TxDb.Hsapiens.UCSC.hg19.knownGene
 - TxDb.Mmusculus.UCSC.mm9.knownGene
 - TxDb.Mmusculus.UCSC.mm10.knownGene
 - org.Hs.eg.db
 - org.Mm.eg.db
-- GO.db
-- KEGG.db
-- Rsubread
-- ggplot2
+
 
 ## Support
  If you're having any problem, please [raise an issue](https://github.com/MayurDivate/GUAVASourceCode/issues) on GitHub. 
