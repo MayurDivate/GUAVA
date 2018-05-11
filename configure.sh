@@ -334,6 +334,4 @@ fi
 
 installMACS2;
 
-
-
-
+echo ">>>>>>>>> Finished <<<<<<<<<"
