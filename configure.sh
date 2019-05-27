@@ -18,10 +18,11 @@ esac
 echo "INSTALLING GUAVA-1 dependencies"
 echo ">>>>>> Operating system :"${machine}
 
-
 isSuccess=false;
 
-#>>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL wget on linux####
+###
+# INSTALL wget on linux
+###
 
 isWget(){
 	toolPath=`which wget`
@@ -38,10 +39,10 @@ installWget(){
 }
 
 
-################################################################################################################################################################
 
-
-#>>>>>>>>>>>>>>>>>>>>>>>>>> Installing R ####
+###
+# Installing R 
+###
 
 isR=false;
 
@@ -49,12 +50,10 @@ linuxR(){
   echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
   sudo apt-get update
   sudo apt-get install r-base
-
-
 }
 
 macR(){
-	curl -O https://cran.r-project.org/bin/macosx/R-3.5.0.pkg;
+  curl -O https://cran.r-project.org/bin/macosx/R-3.5.0.pkg;
 }
 
 installR(){
@@ -65,7 +64,6 @@ installR(){
   else
 	linuxR;
   fi
-  
  
 }
 
@@ -83,7 +81,9 @@ checkR(){
 checkR;
 
 
-#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing required R packages ######
+###
+# Installing required R packages 
+###
 checkR;
 
 if [ $isR != false ]; then
@@ -96,15 +96,9 @@ else
 fi
 
 
-
-
-
-
-##############################################################################################################################
-
-
-#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing Miniconda ######
-
+###
+# Installing Miniconda ######
+###
 conda=false
 isConda(){
 echo ""
@@ -269,23 +263,9 @@ installBC picard
 installBC igv
 installUCSC bedGraphToBigWig
 
-
-
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################
-
-#>>>>>>>>>>>>>>>>>>>>>>>>>  Installing MACS2 ######
-
-
-isMACS2=false;
+#########################
+### Installing MACS2 ###
+#######################
 
 installMACS2(){
 
@@ -323,10 +303,10 @@ if [ -z $macs2Path ]; then
       pip install macs2==2.1.1.20160309;
    fi 
   
-elif [ -n $macs2Path ]; then
+   elif [ -n $macs2Path ]; then
      printf "\n\n\n"
      echo ">>> MACS2 is already installed ! ";
-fi
+   fi
 
 }
 
