@@ -317,11 +317,10 @@ if [ -z $macs2Path ]; then
 
    printf "\n" 
    echo ">>> >> > Installing MACS2 > >> >>>"
-   
    if [ $machine = "Mac" ]; then
-      sudo -H pip install macs2;
+      sudo -H pip install macs2==2.1.1.20160309;
    else
-      pip install macs2;
+      pip install macs2==2.1.1.20160309;
    fi 
   
 elif [ -n $macs2Path ]; then
