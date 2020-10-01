@@ -59,7 +59,7 @@ sh ./configure.sh
 
 **GUI version**
 ```
- java -jar GUAVA.jar
+ java –jar GUAVA.jar
 ```
 
 <br/>
