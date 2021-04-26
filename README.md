@@ -74,7 +74,7 @@ To download manual [**click here**](http://ec2-52-201-246-161.compute-1.amazonaw
 <br/>
 
 ## Sample Data 
-To download sample data [ **Click Here** ](http://ec2-52-201-246-161.compute-1.amazonaws.com/guava/)
+To download sample data [ **Click Here** ](https://drive.google.com/drive/folders/1TqSOOAuA6wRJVCeOMTD8q7RE1fscAoe2?usp=sharing)
 
 ## Anaconda Error: Missing write permissions in
 If you encounter error which says "Error: Missing write permissions in:/share/apps/anaconda***",<br/>
