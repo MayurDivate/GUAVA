@@ -1,9 +1,14 @@
 
 print(">>> >> > Loading BIOCONDUCTOR > >> >>>")
 
+# old way to install bioconductor packages 
+#source("https://bioconductor.org/biocLite.R")
+#biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 
-source("https://bioconductor.org/biocLite.R")
-biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
+# lates way to install bioconductor packages 
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
 
 print(">>> >> > checking required packages > >> >>>")
 
@@ -20,8 +25,11 @@ otherPackages <- c("ggplot2")
 checkBCpackage <- function(bcpkgname){ 
   c <- suppressMessages(library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE))
   if(!c){
-    print(paste(">>> >> > Trying to install",bcpkgname,"> >> >>>",sep = " "))
-    biocLite(bcpkgname, ask = TRUE)
+	  print(paste(">>> >> > Trying to install",bcpkgname,"> >> >>>",sep = " "))
+	  # old way	
+	  # biocLite(bcpkgname, ask = TRUE)
+	  # New way
+	  BiocManager::install(bcpkgname, ask=TRUE)
     
     c2 <- library(bcpkgname,character.only = TRUE,logical.return = TRUE,quietly = TRUE)  
     if(!c2){
