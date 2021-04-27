@@ -1,7 +1,7 @@
 
 print(">>> >> > Loading BIOCONDUCTOR > >> >>>")
 
-# old way to install bioconductor packages 
+# old way to install bioconductor packages (biocLite)
 #source("https://bioconductor.org/biocLite.R")
 #biocLite(suppressAutoUpdate=TRUE,ask = FALSE,suppressUpdates = TRUE)
 
